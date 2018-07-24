@@ -3,6 +3,10 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
+    url(r'^$',
+        views.WelcomeView.as_view(),
+        name='welcome',
+        ),
     url(r'^signup/',
         views.SignupView.as_view(),
         name='signup',
@@ -34,5 +38,9 @@ urlpatterns = [
     url(r'^activate/(?P<uidb64>.+)/(?P<token>.+)/$',
         view=views.AccountActivationView.as_view(),
         name='activate_account',
+        ),
+    url(r'^centres/',
+        view=views.CentresListView.as_view(),
+        name='centres_list',
         ),
 ]
